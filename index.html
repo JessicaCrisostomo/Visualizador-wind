@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comparación y visualización de viento</title>
+
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>Comparación y visualización de viento</h1>
+    <p>Las Salinas Norte - Año 2025</p>
+</header>
+
+<nav>
+    <button onclick="mostrarSeccion('series')">Series temporales</button>
+    <button onclick="mostrarSeccion('rosasMensuales')">Rosas mensuales</button>
+    <button onclick="mostrarSeccion('rosasHora')">Rosas por hora</button>
+    <button onclick="mostrarSeccion('estadisticos')">Estadísticos</button>
+</nav>
+
+<section class="panel-control">
+    <label for="selectorMes">Mes:</label>
+    <select id="selectorMes" onchange="actualizarTodo()">
+        <option value="0">Enero</option>
+        <option value="1">Febrero</option>
+        <option value="2">Marzo</option>
+        <option value="3">Abril</option>
+        <option value="4">Mayo</option>
+        <option value="5">Junio</option>
+        <option value="6">Julio</option>
+        <option value="7">Agosto</option>
+        <option value="8">Septiembre</option>
+        <option value="9">Octubre</option>
+        <option value="10">Noviembre</option>
+        <option value="11">Diciembre</option>
+    </select>
+
+    <label for="selectorHora">Hora:</label>
+    <select id="selectorHora" onchange="actualizarTodo()">
+        <option value="0">00 UTC</option>
+        <option value="1">01 UTC</option>
+        <option value="2">02 UTC</option>
+        <option value="3">03 UTC</option>
+        <option value="4">04 UTC</option>
+        <option value="5">05 UTC</option>
+        <option value="6">06 UTC</option>
+        <option value="7">07 UTC</option>
+        <option value="8">08 UTC</option>
+        <option value="9">09 UTC</option>
+        <option value="10">10 UTC</option>
+        <option value="11">11 UTC</option>
+        <option value="12">12 UTC</option>
+        <option value="13">13 UTC</option>
+        <option value="14">14 UTC</option>
+        <option value="15">15 UTC</option>
+        <option value="16">16 UTC</option>
+        <option value="17">17 UTC</option>
+        <option value="18">18 UTC</option>
+        <option value="19">19 UTC</option>
+        <option value="20">20 UTC</option>
+        <option value="21">21 UTC</option>
+        <option value="22">22 UTC</option>
+        <option value="23">23 UTC</option>
+    </select>
+</section>
+
+<section id="series" class="seccion activa">
+    <h2>Series temporales</h2>
+
+    <h3>Intensidad del viento</h3>
+    <div id="graficoVelocidad" class="grafico"></div>
+
+    <h3>Dirección del viento</h3>
+    <div id="graficoDireccion" class="grafico"></div>
+</section>
+
+<section id="rosasMensuales" class="seccion">
+    <h2>Rosas de viento mensuales</h2>
+    <p>Las rosas usan los datos del mes seleccionado.</p>
+    <div class="grid-rosas">
+        <div id="rosaMensualObs" class="grafico-rosa"></div>
+        <div id="rosaMensualEcmwf" class="grafico-rosa"></div>
+        <div id="rosaMensualGfs" class="grafico-rosa"></div>
+        <div id="rosaMensualMeteoblue" class="grafico-rosa"></div>
+    </div>
+</section>
+
+<section id="rosasHora" class="seccion">
+    <h2>Rosas de viento por hora</h2>
+    <p>Las rosas usan el mes y hora seleccionados.</p>
+    <div class="grid-rosas">
+        <div id="rosaHoraObs" class="grafico-rosa"></div>
+        <div id="rosaHoraEcmwf" class="grafico-rosa"></div>
+        <div id="rosaHoraGfs" class="grafico-rosa"></div>
+        <div id="rosaHoraMeteoblue" class="grafico-rosa"></div>
+    </div>
+</section>
+
+<section id="estadisticos" class="seccion">
+    <h2>Estadísticos mensuales</h2>
+
+    <h3>Intensidad</h3>
+    <div id="tablaIntensidad"></div>
+
+    <h3>Dirección</h3>
+    <div id="tablaDireccion"></div>
+</section>
+
+<footer>
+    Visualizador integrado de viento - Las Salinas 2025
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
