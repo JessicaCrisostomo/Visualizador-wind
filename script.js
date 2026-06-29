@@ -166,7 +166,7 @@ function actualizarTodo() {
 
     seriesModelos.forEach(modelo => {
         graficarRosa(datosMes, modelo, modelo.idMensual, `${modelo.nombre} - ${mesesNombre[mes]}`);
-        graficarRosa(datosMesHora, modelo, modelo.idHora, `${modelo.nombre} - ${mesesNombre[mes]} ${String(hora).padStart(2, '0')} UTC`);
+        graficarRosa(datosMesHora, modelo, modelo.idHora, `${modelo.nombre} - ${mesesNombre[mes]} ${String(hora).padStart(2, '0')} hr `);
     });
 }
 
